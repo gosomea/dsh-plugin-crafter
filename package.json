@@ -1,0 +1,32 @@
+{
+  "name": "dsh-plugin-workbench",
+  "version": "0.1.0",
+  "description": "A DeepSeek Harness plugin-development preset with version-aware skills and isolated verification guidance",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "cordis.patch.yml",
+    "skills/dsh-plugin-workbench/SKILL.md",
+    "skills/dsh-upstream-source/SKILL.md",
+    "skills/dsh-plugin-verification/SKILL.md",
+    "skills/dsh-plugin-verification/references/environment-registry.md",
+    "skills/dsh-plugin-verification/references/host-checks.md",
+    "skills/dsh-plugin-verification/scripts/environments.py",
+    "docs/compatibility.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "check": "node --test scripts/check-package.test.mjs",
+    "check:upstream": "node scripts/sync-official-preset.mjs --check",
+    "pack:check": "npm pack --dry-run --json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
