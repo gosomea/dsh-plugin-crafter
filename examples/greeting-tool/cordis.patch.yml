@@ -1,0 +1,23 @@
+# dsh-crafter-example-greeting bundle layer.
+#
+# One insert of a standalone @deepseek-ai/dsh-agent-preset declaration. The
+# preset's own `plugins` list mounts this package's tool plugin and then the
+# official persona row, so the tool registers inside the preset's Agent scope
+# and needs no `agent/created` listener.
+#
+- insert:
+    - id: preset-crafter-example-greeting
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: crafter-example-greeting
+        name: Greeting Example
+        description: Example preset that mounts the crafter_greet tool.
+        order: 50
+        plugins:
+          - id: greeting-tool
+            name: dsh-crafter-example-greeting
+          - id: persona
+            name: '@deepseek-ai/dsh-persona'
+            config:
+              suffix: Your working directory is {{cwd}}.
+              prefix: You are a DSH plugin example agent powered by the {{model}} model.

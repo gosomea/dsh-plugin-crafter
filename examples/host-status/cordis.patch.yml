@@ -1,0 +1,5 @@
+- insert:
+    - id: crafter-example-host-status
+      name: dsh-crafter-example-host-status
+      config:
+        label: Plugin Crafter example

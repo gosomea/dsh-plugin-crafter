@@ -1,0 +1,36 @@
+{
+  "name": "dsh-crafter-example-greeting",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Self-contained DSH example bundle: a crafter-example-greeting Agent preset that registers the crafter_greet tool",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "greeting.js",
+    "cordis.patch.yml",
+    "test/",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "0.1.7-alpha.2"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-tools": "0.1.7-alpha.2"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "3.18.4"
+  }
+}

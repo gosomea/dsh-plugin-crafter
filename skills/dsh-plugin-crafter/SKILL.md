@@ -11,4 +11,6 @@ For a persistent external plugin, use the target checkout's `docs/user/develop/`
 
 Before implementing, identify the owning Host or Agent scope, services and injections, config fields, disposable registrations, model-visible effects, and one observable result. Keep deployable plugin code in a normal repository with a package manifest and appropriate build output. Make the installation path explicit: dynamic runtime, source overlay, linked checkout, packed tarball, and registry package prove different things.
 
+Once the necessary registration, configuration, and cleanup contracts are known, write the smallest installable version. Do not keep enumerating catalogs or reading whole package directories before producing files. Prefer a dedicated preset when a tool should be available only in that preset; this avoids implementing per-Agent lifecycle listeners for a simple scoped tool. Read the [packaged examples](../../examples/README.md) for a starting pattern, then verify their APIs against the selected target version.
+
 Use `dsh-plugin-verification` for the appropriate layers. Check the built or packed artifact, install through the supported path in a dedicated profile, then exercise the specific runtime behavior. A config dump shows composition only. Report the DSH version, actual commands, observations, and any layer still untested.

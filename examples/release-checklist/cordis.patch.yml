@@ -1,0 +1,24 @@
+- insert:
+    - id: preset-crafter-example-release
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: crafter-example-release
+        name: Release Checklist Example
+        description: Read-only release review with a packaged Skill.
+        order: 20
+        plugins:
+          - id: persona
+            name: '@deepseek-ai/dsh-persona'
+            config:
+              prefix: Review a plugin release against its stated target version and evidence.
+          - id: skill-filesystem
+            name: '@deepseek-ai/dsh-skill-filesystem'
+            config:
+              includeDefaultRoots: false
+              watch: false
+              customSkillDirs:
+                - !!js process.getBuiltinModule('node:path').join(process.getBuiltinModule('node:path').dirname(process.getBuiltinModule('node:module').createRequire(baseUrl).resolve('dsh-crafter-example-release-checklist/package.json')), 'skills')
+          - id: tool-skill
+            name: '@deepseek-ai/dsh-tool-skill'
+          - id: tool-fs
+            name: '@deepseek-ai/dsh-tool-fs'

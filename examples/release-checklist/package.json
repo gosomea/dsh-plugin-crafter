@@ -1,0 +1,11 @@
+{
+  "name": "dsh-crafter-example-release-checklist",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A configuration-only DSH preset with a packaged release checklist Skill",
+  "type": "module",
+  "license": "MIT",
+  "exports": { "./package.json": "./package.json" },
+  "files": ["cordis.patch.yml", "skills/release-checklist/SKILL.md", "README.md"],
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } }
+}

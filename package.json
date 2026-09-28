@@ -17,16 +17,60 @@
     "skills/dsh-plugin-verification/scripts/environments.py",
     "docs/compatibility.md",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "examples/README.md",
+    "examples/greeting-tool/README.md",
+    "examples/greeting-tool/cordis.patch.yml",
+    "examples/greeting-tool/greeting.js",
+    "examples/greeting-tool/index.js",
+    "examples/greeting-tool/package.json",
+    "examples/greeting-tool/test/greeting.test.js",
+    "examples/host-status/README.md",
+    "examples/host-status/cordis.patch.yml",
+    "examples/host-status/index.js",
+    "examples/host-status/index.test.mjs",
+    "examples/host-status/package.json",
+    "examples/release-checklist/README.md",
+    "examples/release-checklist/cordis.patch.yml",
+    "examples/release-checklist/package.json",
+    "examples/release-checklist/skills/release-checklist/SKILL.md",
+    "scripts/smoke-examples.mjs",
+    "docs/examples-verification.md"
   ],
   "scripts": {
-    "check": "node --test scripts/check-package.test.mjs",
+    "check": "node --test scripts/*.test.mjs examples/greeting-tool/test/*.test.js examples/host-status/*.test.mjs",
     "check:upstream": "node scripts/sync-official-preset.mjs --check",
-    "pack:check": "npm pack --dry-run --json"
+    "pack:check": "npm pack --dry-run --json",
+    "smoke:examples": "node scripts/smoke-examples.mjs"
   },
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
     }
+  },
+  "author": "gosomea",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gosomea/dsh-plugin-crafter.git"
+  },
+  "homepage": "https://github.com/gosomea/dsh-plugin-crafter#readme",
+  "bugs": {
+    "url": "https://github.com/gosomea/dsh-plugin-crafter/issues"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin-development",
+    "agent-preset",
+    "skills"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@deepseek-ai/schemastery": "3.18.4"
   }
 }
