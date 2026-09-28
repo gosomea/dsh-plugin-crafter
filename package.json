@@ -1,5 +1,5 @@
 {
-  "name": "dsh-plugin-workbench",
+  "name": "dsh-plugin-crafter",
   "version": "0.1.0",
   "description": "A DeepSeek Harness plugin-development preset with version-aware skills and isolated verification guidance",
   "type": "module",
@@ -9,7 +9,7 @@
   },
   "files": [
     "cordis.patch.yml",
-    "skills/dsh-plugin-workbench/SKILL.md",
+    "skills/dsh-plugin-crafter/SKILL.md",
     "skills/dsh-upstream-source/SKILL.md",
     "skills/dsh-plugin-verification/SKILL.md",
     "skills/dsh-plugin-verification/references/environment-registry.md",

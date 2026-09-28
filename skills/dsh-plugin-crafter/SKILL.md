@@ -1,5 +1,5 @@
 ---
-name: dsh-plugin-workbench
+name: dsh-plugin-crafter
 description: Develop or modify a DeepSeek Harness plugin from a user request, choosing the correct extension point, target version, package form, and observable acceptance checks.
 ---
 

@@ -1,6 +1,6 @@
-# DSH Plugin Workbench
+# DSH Plugin Crafter（DSH 插件工匠）
 
-A local DeepSeek Harness bundle that adds a **Plugin Workbench** agent preset. The preset follows the official Creator (`cordis`) composition for the selected DSH version and adds three focused Skills: plugin development workflow, current DSH source navigation, and isolated verification. It also keeps the official Creator Skills available.
+A local DeepSeek Harness bundle that adds a **Plugin Crafter** agent preset. The preset follows the official Creator (`cordis`) composition for the selected DSH version and adds three focused Skills: plugin development workflow, current DSH source navigation, and isolated verification. It also keeps the official Creator Skills available.
 
 This repository is in development. Its preset is based on the official `0.1.7-alpha.2` Web bundle; see [compatibility](docs/compatibility.md) for the exact commit and validation status.
 
@@ -10,18 +10,18 @@ Use a DSH installation that matches the compatibility record and supports declar
 
 ```sh
 export DSH_HOME=/absolute/path/to/isolated-dsh-home
-dsh --profile workbench --from-default-profile web --dump-config
-dsh plugin --profile workbench add link:/absolute/path/to/dsh-plugin-workbench
-dsh --profile workbench --dump-config
-dsh --profile workbench --no-open
+dsh --profile crafter --from-default-profile web --dump-config
+dsh plugin --profile crafter add link:/absolute/path/to/dsh-plugin-crafter
+dsh --profile crafter --dump-config
+dsh --profile crafter --no-open
 ```
 
-Create a new session and select **Plugin Workbench**. Ask it to create a tool, Host, or UI plugin; it should establish the target DSH version, inspect the matching APIs, implement the plugin, and use an isolated test profile for real behavior checks. Installing this bundle does not itself install a source checkout or create a model credential.
+Create a new session and select **Plugin Crafter**. Ask it to create a tool, Host, or UI plugin; it should establish the target DSH version, inspect the matching APIs, implement the plugin, and use an isolated test profile for real behavior checks. Installing this bundle does not itself install a source checkout or create a model credential.
 
 ## Package contents
 
 - `cordis.patch.yml` declares one new preset and loads both official Creator Skills and this package's Skills through `dsh-skill-filesystem`.
-- `dsh-plugin-workbench` chooses the DSH extension form and development steps.
+- `dsh-plugin-crafter` chooses the DSH extension form and development steps.
 - `dsh-upstream-source` ties decisions to the target version's docs, types, and source.
 - `dsh-plugin-verification` supplies a portable isolation workflow and an environment registry. It adapts the author's `dsh-plugin-isolated-test` workflow; the packaged instructions do not depend on this monorepo.
 

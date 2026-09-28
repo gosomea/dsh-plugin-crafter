@@ -24,12 +24,12 @@ function replaceOnce(before, after) {
 
 replaceOnce(
   '# Agent preset cordis: one `@deepseek-ai/dsh-agent-preset` declaration inserted\n# after the web patch. Edits saved from the Web editor override this row\'s\n# `config.plugins` by id from the profile patch.\n',
-  '# Plugin Workbench follows the official cordis preset composition.\n# Regenerate and review against a target DSH checkout with scripts/sync-official-preset.mjs.\n',
+  '# Plugin Crafter follows the official cordis preset composition.\n# Regenerate and review against a target DSH checkout with scripts/sync-official-preset.mjs.\n',
 )
-replaceOnce('    - id: preset-cordis\n', '    - id: preset-plugin-workbench\n')
+replaceOnce('    - id: preset-cordis\n', '    - id: preset-plugin-crafter\n')
 replaceOnce(
   '        id: cordis\n        order: 4\n',
-  '        id: plugin-workbench\n        name: Plugin Workbench\n        description: Develop and verify DeepSeek Harness plugins against the current installation.\n        order: 5\n',
+  '        id: plugin-crafter\n        name: Plugin Crafter\n        description: Develop and verify DeepSeek Harness plugins against the current installation.\n        order: 5\n',
 )
 replaceOnce(
   '                You are a coding agent powered by the {{model}} model.\n',
@@ -38,7 +38,7 @@ replaceOnce(
 const bundledSkills = "                - !!js process.getBuiltinModule('node:path').join(process.getBuiltinModule('node:path').dirname(process.getBuiltinModule('node:module').createRequire(baseUrl).resolve('@deepseek-ai/dsh-agent-preset/package.json')), 'skills')\n"
 replaceOnce(
   bundledSkills,
-  bundledSkills + "                - !!js process.getBuiltinModule('node:path').join(process.getBuiltinModule('node:path').dirname(process.getBuiltinModule('node:module').createRequire(baseUrl).resolve('dsh-plugin-workbench/package.json')), 'skills')\n",
+  bundledSkills + "                - !!js process.getBuiltinModule('node:path').join(process.getBuiltinModule('node:path').dirname(process.getBuiltinModule('node:module').createRequire(baseUrl).resolve('dsh-plugin-crafter/package.json')), 'skills')\n",
 )
 
 if (mode === '--write') {

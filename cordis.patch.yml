@@ -1,11 +1,11 @@
-# Plugin Workbench follows the official cordis preset composition.
+# Plugin Crafter follows the official cordis preset composition.
 # Regenerate and review against a target DSH checkout with scripts/sync-official-preset.mjs.
 - insert:
-    - id: preset-plugin-workbench
+    - id: preset-plugin-crafter
       name: '@deepseek-ai/dsh-agent-preset'
       config:
-        id: plugin-workbench
-        name: Plugin Workbench
+        id: plugin-crafter
+        name: Plugin Crafter
         description: Develop and verify DeepSeek Harness plugins against the current installation.
         order: 5
         plugins:
@@ -146,7 +146,7 @@
             config:
               customSkillDirs:
                 - !!js process.getBuiltinModule('node:path').join(process.getBuiltinModule('node:path').dirname(process.getBuiltinModule('node:module').createRequire(baseUrl).resolve('@deepseek-ai/dsh-agent-preset/package.json')), 'skills')
-                - !!js process.getBuiltinModule('node:path').join(process.getBuiltinModule('node:path').dirname(process.getBuiltinModule('node:module').createRequire(baseUrl).resolve('dsh-plugin-workbench/package.json')), 'skills')
+                - !!js process.getBuiltinModule('node:path').join(process.getBuiltinModule('node:path').dirname(process.getBuiltinModule('node:module').createRequire(baseUrl).resolve('dsh-plugin-crafter/package.json')), 'skills')
           - id: tool-skill
             name: '@deepseek-ai/dsh-tool-skill'
           - id: present

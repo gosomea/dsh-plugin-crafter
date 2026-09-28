@@ -1,4 +1,4 @@
-# dsh-plugin-workbench
+# dsh-plugin-crafter
 
 This repository builds an external DeepSeek Harness bundle. Read `README.md` and `docs/compatibility.md` before changing its patch or Skills. The target Harness checkout is read-only for this project.
 

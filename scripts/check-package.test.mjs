@@ -9,14 +9,14 @@ const patch = readFileSync(new URL('cordis.patch.yml', root), 'utf8')
 
 test('bundle declares an installable patch and a distinct preset', () => {
   assert.equal(packageJson.dsh.bundle.patch, './cordis.patch.yml')
-  assert.match(patch, /id: preset-plugin-workbench\n\s+name: '@deepseek-ai\/dsh-agent-preset'/)
-  assert.match(patch, /id: plugin-workbench/)
-  assert.match(patch, /resolve\('dsh-plugin-workbench\/package\.json'\)/)
+  assert.match(patch, /id: preset-plugin-crafter\n\s+name: '@deepseek-ai\/dsh-agent-preset'/)
+  assert.match(patch, /id: plugin-crafter/)
+  assert.match(patch, /resolve\('dsh-plugin-crafter\/package\.json'\)/)
   assert.match(patch, /resolve\('@deepseek-ai\/dsh-agent-preset\/package\.json'\)/)
 })
 
 test('every declared skill exists in the distributable package', () => {
-  for (const name of ['dsh-plugin-workbench', 'dsh-upstream-source', 'dsh-plugin-verification']) {
+  for (const name of ['dsh-plugin-crafter', 'dsh-upstream-source', 'dsh-plugin-verification']) {
     const path = fileURLToPath(new URL(`skills/${name}/SKILL.md`, root))
     assert.ok(existsSync(path), path)
     const body = readFileSync(path, 'utf8')
