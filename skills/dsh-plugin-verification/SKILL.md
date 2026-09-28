@@ -5,6 +5,8 @@ description: Verify a DeepSeek Harness plugin through focused tests, packed-file
 
 # Verify a DSH plugin
 
+The [multi-environment development guide](../../docs/isolated-development.md) explains the user-facing setup and retention procedure; the registry reference below owns the script semantics.
+
 Choose only the layers that apply to the plugin, but do not claim a later layer from evidence for an earlier one. Standalone tests check logic; build and packed-file inspection check distributed files; `--dump-config` checks profile composition; a running Host checks module loading, injection, and behavior; a browser action checks contributed UI. Report unrun applicable layers as untested.
 
 Before starting a Host, identify the daily process and its `DSH_HOME`. Query this Skill's [environment registry](references/environment-registry.md) by canonical plugin project and reuse a compatible deployment. A new case workspace does not require a new Host. Register a new deployment as soon as paths are chosen. The registry tracks identity and handoff; it does not start or stop processes.

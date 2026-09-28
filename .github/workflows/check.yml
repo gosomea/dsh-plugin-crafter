@@ -21,4 +21,5 @@ jobs:
       - run: python3 -m unittest discover -s tests
         env:
           PYTHONDONTWRITEBYTECODE: '1'
+      - run: npm run doc-sync
       - run: npm run pack:check

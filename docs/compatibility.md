@@ -1,11 +1,58 @@
+---
+description: "Choose a tested DSH version and revalidate preset composition before upgrading."
+---
+
 # Compatibility
 
-The initial preset is derived from the official `deepseek-ai/deepseek-harness` checkout at commit `00102833dfaee1da9f48a3a8eae9d34005a75218`, whose Web bundle declares version `0.1.7-alpha.2`. It is based on `packages/bundle/web-app/presets/cordis.patch.yml` and adds a distinct `plugin-crafter` declaration plus this package's Skill root.
+English | [中文](compatibility.zh.md)
 
-Verified on 2026-09-28 with the target source CLI (`pnpm dsh`, Node 24.19.0) and an isolated `DSH_HOME`. The packed `0.1.0` tarball installed into a `workbench-trial` profile derived from Web. The composed profile contained `preset-plugin-workbench`; the running Web Host listed `plugin-workbench` without a mount diagnostic. A new Session recorded the temporary case workspace and its `skills/list` response included this package's three Skills plus the official `cordis-plugin-development` and `editing-cordis-compositions` Skills. No model task or browser UI flow was run; neither is required for this configuration and Skill bundle's current behavior. The separately installed global CLI on this workstation is `0.1.0-rc.6`; it has a different preset mechanism and was not used for compatibility testing.
+## Summary
 
-On the same date, the repository, package, primary Skill, and preset were renamed to Plugin Crafter (`dsh-plugin-crafter`, `plugin-crafter`). The new packed tarball replaced the old package in the same isolated profile; its composed config contained only `preset-plugin-crafter`. The running Host listed Plugin Crafter, and a new Session selected `plugin-crafter` and exposed all three packaged Skills plus the official Creator Skills. The `workbench-trial` profile name above is retained as an existing test deployment identifier.
+Use this package with the recorded DSH target. The preset derives from that target’s official Creator composition. Verification covers installed skills and examples on a real Host. Revalidate a different DSH version before using the package there.
 
-When updating the target version, run `node scripts/sync-official-preset.mjs --write <target-checkout>` and review the generated diff. Then run package checks and isolated installation, composition, Host, and skill-catalog checks against that exact target. Update this record with the tested version and evidence.
+## Table of Contents
 
-The initial public release also includes three installable examples and a reproducible packed-artifact Host runner. See [example verification](examples-verification.md) for the real model-assisted development trial, actual tool and route behavior, isolation evidence, and limitations of the tested checkout.
+- [Tested target](#tested-target)
+- [Validate another target](#upgrade)
+- [Dev Note](#dev-note)
+
+-----
+
+<a id="tested-target"></a>
+## Tested target
+
+Choose the recorded runtime and source before comparing another version.
+
+| Subject | Recorded target |
+| --- | --- |
+| DSH Web bundle | `0.1.7-alpha.2` |
+| Creator composition owner | `packages/bundle/web-app/presets/cordis.patch.yml` in the matching official checkout |
+| Crafter preset | `plugin-crafter`, displayed as Plugin Crafter |
+| Initial published package | `dsh-plugin-crafter@0.1.0` |
+| Runtime | Node `24.19.0`, source CLI, isolated Web profile |
+
+The exact source baseline and artifact integrity are recorded in [verification.json](verification.json). The tested checkout has pre-existing LLM and persistence changes; the relevant Creator, tools, Web server, skill filesystem, and preset files were unchanged. This evidence does not establish a clean-release compatibility matrix.
+
+<a id="upgrade"></a>
+## Validate another target
+
+Use a separate source checkout when the candidate build differs from a retained Host. Follow [multi-environment development](isolated-development.md) to preserve the existing deployment. From this repository, compare or intentionally regenerate the preset:
+
+```sh
+node scripts/sync-official-preset.mjs --check /absolute/path/to/target-dsh-checkout
+node scripts/sync-official-preset.mjs --write /absolute/path/to/target-dsh-checkout
+```
+
+`--check` fails if the committed patch differs from the transform. `--write` replaces that patch; review the diff before installing it. Run package checks, packed installation, actual Host activation, and skill-catalog checks on the chosen target. Record the resulting version and evidence before declaring compatibility. A working config dump alone is insufficient.
+
+-----
+
+<a id="dev-note"></a>
+## Dev Note
+
+<details>
+<summary>Working context for maintainers — click to expand</summary>
+
+None.
+
+</details>

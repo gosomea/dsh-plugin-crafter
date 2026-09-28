@@ -1,7 +1,7 @@
 {
   "name": "dsh-plugin-crafter",
   "version": "0.1.0",
-  "description": "A DeepSeek Harness plugin-development preset with version-aware skills and isolated verification guidance",
+  "description": "Develop DeepSeek Harness plugins across reusable isolated environments with official-source guidance and artifact verification",
   "type": "module",
   "license": "MIT",
   "exports": {
@@ -35,13 +35,36 @@
     "examples/release-checklist/package.json",
     "examples/release-checklist/skills/release-checklist/SKILL.md",
     "scripts/smoke-examples.mjs",
-    "docs/examples-verification.md"
+    "docs/examples-verification.md",
+    "README.zh.md",
+    "README.i18n.yaml",
+    "docs/isolated-development.md",
+    "docs/isolated-development.zh.md",
+    "docs/examples-verification.zh.md",
+    "docs/development.zh.md",
+    "docs/compatibility.zh.md",
+    "docs/development.md",
+    "examples/README.zh.md",
+    "examples/greeting-tool/README.zh.md",
+    "examples/host-status/README.zh.md",
+    "examples/release-checklist/README.zh.md",
+    "docs/isolated-development.i18n.yaml",
+    "docs/examples-verification.i18n.yaml",
+    "docs/compatibility.i18n.yaml",
+    "docs/development.i18n.yaml",
+    "examples/README.i18n.yaml",
+    "examples/greeting-tool/README.i18n.yaml",
+    "examples/host-status/README.i18n.yaml",
+    "examples/release-checklist/README.i18n.yaml",
+    "docs/verification.json"
   ],
   "scripts": {
     "check": "node --test scripts/*.test.mjs examples/greeting-tool/test/*.test.js examples/host-status/*.test.mjs",
     "check:upstream": "node scripts/sync-official-preset.mjs --check",
     "pack:check": "npm pack --dry-run --json",
-    "smoke:examples": "node scripts/smoke-examples.mjs"
+    "smoke:examples": "node scripts/smoke-examples.mjs",
+    "check:docs": "node --test scripts/check-docs.test.mjs",
+    "doc-sync": "node scripts/check-docs.mjs"
   },
   "dsh": {
     "bundle": {
@@ -71,6 +94,8 @@
     "access": "public"
   },
   "devDependencies": {
-    "@deepseek-ai/schemastery": "3.18.4"
+    "@deepseek-ai/schemastery": "3.18.4",
+    "markdown-it": "15.0.2",
+    "yaml": "2.9.1"
   }
 }

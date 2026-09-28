@@ -14,8 +14,8 @@
 
 ```bash
 python3 "$DSH_ENV_SCRIPT" list --project "$DSH_PLUGIN_PROJECT"
-python3 "$DSH_ENV_SCRIPT" show supervisor-user
-python3 "$DSH_ENV_SCRIPT" check supervisor-user
+python3 "$DSH_ENV_SCRIPT" show crafter-accept
+python3 "$DSH_ENV_SCRIPT" check crafter-accept
 ```
 
 - `list` 给出简洁候选列表，首选部署排在前面；`show` 展开接续说明和用例对应关系。
@@ -31,14 +31,14 @@ python3 "$DSH_ENV_SCRIPT" check supervisor-user
 先分配目录，再立即登记，即使 Host 尚未启动；此时省略 PID/URL。这样下一次对话可发现正在准备的部署。已有部署迁入记录时可一次填入已核实的 PID/URL：
 
 ```bash
-python3 "$DSH_ENV_SCRIPT" register supervisor-user \
+python3 "$DSH_ENV_SCRIPT" register crafter-accept \
   --project "$DSH_PLUGIN_PROJECT" \
   --source "$DSH_SOURCE" --plugin "$DSH_PLUGIN" \
   --home "$DSH_TEST_HOME" --profile "$DSH_TEST_PROFILE" \
-  --purpose 'Supervisor 中文任务与人工验收' --preferred \
+  --purpose '插件产物与人工验收' --preferred \
   --state retained --note '用户仍在验证；修改构建或重启前先核查活动任务'
 
-python3 "$DSH_ENV_SCRIPT" update supervisor-user \
+python3 "$DSH_ENV_SCRIPT" update crafter-accept \
   --pid "$DSH_TEST_PID" --url "http://127.0.0.1:$DSH_TEST_PORT" \
   --supervisor "$DSH_TEST_SERVICE" --log "$DSH_TEST_LOG"
 ```
@@ -52,12 +52,12 @@ python3 "$DSH_ENV_SCRIPT" update supervisor-user \
 先通过 DSH 原生接口创建／绑定 Session，再把事实登记进 SQLite：
 
 ```bash
-python3 "$DSH_ENV_SCRIPT" bind supervisor-user \
-  --case chinese-approval --workspace "$DSH_TEST_WORKSPACE" \
-  --session "$DSH_TEST_SESSION" --purpose '中文计划、文字批准、独立审查'
+python3 "$DSH_ENV_SCRIPT" bind crafter-accept \
+  --case release-case --workspace "$DSH_TEST_WORKSPACE" \
+  --session "$DSH_TEST_SESSION" --purpose '插件产物运行时验收'
 
-python3 "$DSH_ENV_SCRIPT" update supervisor-user --state retained \
-  --note '中文批准已通过；接下来验证暂停恢复。保留当前 Session 供用户检查。'
+python3 "$DSH_ENV_SCRIPT" update crafter-accept --state retained \
+  --note '产物验收已通过；接下来验证插件更新。保留当前 Session 供用户检查。'
 ```
 
 `bind` 只登记，不替代 DSH 的 Session 绑定；同一个 case ID 会更新原记录。需要保留多次运行时使用不同 case ID。尚未创建 Session 的准备目录可以省略 `--session`，创建后再补齐。说明记录当前任务、已验证事项、下一步和保留原因，不记录敏感内容。

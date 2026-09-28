@@ -1,0 +1,51 @@
+{
+  "date": "2026-09-28",
+  "initialPackage": "dsh-plugin-crafter@0.1.0",
+  "dshVersion": "0.1.7-alpha.2",
+  "sourceCommit": "00102833dfaee1da9f48a3a8eae9d34005a75218",
+  "nodeVersion": "24.19.0",
+  "sourceLimitations": [
+    "Pre-existing LLM and persistence edits in tested checkout",
+    "Relevant Creator, tools, Web server, skill filesystem and preset files unchanged"
+  ],
+  "publishedIntegrity": "sha512-5ZWgWwGG3inOWvlTo6ylaa7qY7UtpKWSJy3UIdgPN5E6OsVrTx5M+57nfBro/HK5w6QqdLTIpAUgTt1eugFA/A==",
+  "checks": [
+    "Guided model generation and bundle installation",
+    "Packed main and three example bundles activated on real Host",
+    "Canonical greeting result and missing-argument rejection",
+    "Authenticated Host JSON, unauthenticated 401, POST 405",
+    "Route disposal in controlled HTTP test",
+    "Installed release checklist and Crafter skill catalogs",
+    "Persisted Session cwd after Host shutdown",
+    "Official npm installation; published integrity matches tested Release"
+  ],
+  "dailySessionDirectoryCount": {
+    "before": 62,
+    "after": 62
+  },
+  "notVerified": [
+    "Client UI: no example contributes UI",
+    "Live greeting configuration reload",
+    "Clean DSH release matrix",
+    "Windows live Host identity",
+    "Unattended model generation guarantee"
+  ],
+  "multiEnvironmentDocumentationTrial": {
+    "date": "2026-09-28",
+    "artifact": "Unreleased working-tree documentation revision, not the initial npm artifact",
+    "acceptanceIntegrity": "sha512-6LU3k2kWBU1m21Qx1Bt3WD6k3o/Y+EtTLSaX6KANSFLZ+bYH6aaxVjSQQAjDL0vXblMKuaF797O/BLgrvHzp6A==",
+    "developmentInstallation": "absolute link to plugin checkout",
+    "acceptanceInstallation": "packed tarball",
+    "concurrentHosts": 2,
+    "sameUnchangedDshCheckout": true,
+    "modelTasks": false,
+    "checks": [
+      "Exact documentation setup and two foreground launch commands completed",
+      "Two concurrent Hosts have verified distinct homes, profiles, ports and process identities",
+      "Linked development and packed acceptance both activate Plugin Crafter and its three skills",
+      "Stopping the owned development Host leaves acceptance Host responsive",
+      "Each persisted Session belongs to its own home and case workspace; no cross-home Session leakage"
+    ],
+    "cleanup": "Both owned Hosts stopped; environments and case Sessions retained"
+  }
+}
